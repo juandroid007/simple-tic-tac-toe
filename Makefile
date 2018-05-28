@@ -3,3 +3,6 @@ main:
 
 run:
 	./tttoe
+
+clean:
+	rm ./tttoe
