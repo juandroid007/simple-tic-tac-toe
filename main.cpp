@@ -30,7 +30,7 @@ void title() {
 	system("clear");
 
 	cout << "Tic-Tac-Toe v"<<VERSION<<", programado por Juan Villacorta.\n";
-	cout << "\n>>Presione una tecla para continuar; CTRL+C para salir.";
+	cout << "\n >>>Presione una tecla para continuar; CTRL+C para salir.";
 
 	getchar();
 }
