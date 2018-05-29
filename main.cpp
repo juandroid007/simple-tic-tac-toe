@@ -68,9 +68,9 @@ void update(char c[3][3]) {
 		cout << "Ganó la O (cpu).\n\n";
 		exit(0);
 	}
-	else {
+	/*else {
 		cout << "Empate.\n\n";
-	}
+	}*/
 	cout << "Empate.\n\n";
 	exit(0);
 }
