@@ -11,3 +11,8 @@ To build and run, you can execute:
 To clean outputs builds files, run:
 
 	make clean
+	
+To run the build binary, run:
+	
+	./tttoe
+
