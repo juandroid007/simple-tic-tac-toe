@@ -16,3 +16,5 @@ To run the build binary, run:
 	
 	./tttoe
 
+#### Note:
+-The game have a bug in the player input. The out lines in terminal are duplicated. I have no idea of the cause.
