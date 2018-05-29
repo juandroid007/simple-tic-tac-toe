@@ -8,11 +8,12 @@
 using namespace std;
 
 void title();
-void initArrays	(char c[3][3]);
-void table		(char c[3][3]);
-void update		(char c[3][3]);
-void player		(char c[3][3]);
-void cpu		(char c[3][3]);
+void initArrays(char c[3][3]);
+void table(char c[3][3]);
+void update(char c[3][3]);
+void player(char c[3][3]);
+void cpu(char c[3][3]);
+void win(char c[3][3]);
 
 int main() {
 	char c[3][3]; //Datos del tablero
@@ -89,10 +90,10 @@ void player(char c[3][3]) {
 
 	do {
 		do {
-			printf(">Elige una casilla: ");
+			cout << ">Elige una casilla: ";
 			fflush(stdin);
 			scanf("%c", &aux);
-			printf("\n");
+			cout << endl;
 		} while(aux < '1' || aux > '9');
 
 		k = 0;
@@ -103,7 +104,7 @@ void player(char c[3][3]) {
 				j = 0;
 				if(c[i][j] == 'X' || c[i][j] == 'O') {
 					k = 1;
-					printf("La casilla está ocupada. Inente con otro número.\n\n");
+					cout << "La casilla está ocupada. Inente con otro número.\n\n";
 				}
 				break;
 			}
@@ -112,7 +113,7 @@ void player(char c[3][3]) {
 				j = 1;
 				if(c[i][j] == 'X' || c[i][j] == 'O') {
 					k = 1;
-					printf("La casilla está ocupada. Inente con otro número.\n\n");
+					cout << "La casilla está ocupada. Inente con otro número.\n\n";
 				}
 				break;
 			}
@@ -121,7 +122,7 @@ void player(char c[3][3]) {
 				j = 2;
 				if(c[i][j] == 'X' || c[i][j] == 'O') {
 					k = 1;
-					printf("La casilla está ocupada. Inente con otro número.\n\n");
+					cout << "La casilla está ocupada. Inente con otro número.\n\n";
 				}
 				break;
 			}
@@ -130,7 +131,7 @@ void player(char c[3][3]) {
 				j = 0;
 				if(c[i][j] == 'X' || c[i][j] == 'O') {
 					k = 1;
-					printf("La casilla está ocupada. Inente con otro número.\n\n");
+					cout << "La casilla está ocupada. Inente con otro número.\n\n";
 				}
 				break;
 			}
@@ -139,8 +140,7 @@ void player(char c[3][3]) {
 				j = 1;
 				if(c[i][j] == 'X' || c[i][j] == 'O') {
 					k = 1;
-					printf("La casilla está ocupada. Inente con otro número.\n\n");
-				}
+					cout << "La casilla está ocupada. Inente con otro número.\n\n";				}
 				break;
 			}
 			case '6': {
@@ -148,7 +148,7 @@ void player(char c[3][3]) {
 				j = 2;
 				if(c[i][j] == 'X' || c[i][j] == 'O') {
 					k = 1;
-					printf("La casilla está ocupada. Inente con otro número.\n\n");
+					cout << "La casilla está ocupada. Inente con otro número.\n\n";
 				}
 				break;
 			}
@@ -157,7 +157,7 @@ void player(char c[3][3]) {
 				j = 0;
 				if(c[i][j] == 'X' || c[i][j] == 'O') {
 					k = 1;
-					printf("La casilla está ocupada. Inente con otro número.\n\n");
+					cout << "La casilla está ocupada. Inente con otro número.\n\n";
 				}
 				break;
 			}
@@ -166,7 +166,7 @@ void player(char c[3][3]) {
 				j = 1;
 				if(c[i][j] == 'X' || c[i][j] == 'O') {
 					k = 1;
-					printf("La casilla está ocupada. Inente con otro número.\n\n");
+					cout << "La casilla está ocupada. Inente con otro número.\n\n";
 				}
 				break;
 			}
@@ -175,7 +175,7 @@ void player(char c[3][3]) {
 				j = 2;
 				if(c[i][j] == 'X' || c[i][j] == 'O') {
 					k = 1;
-					printf("La casilla está ocupada. Inente con otro número.\n\n");
+					cout << "La casilla está ocupada. Inente con otro número.\n\n";
 				}
 				break;
 			}
@@ -201,4 +201,55 @@ void cpu(char c[3][3]) {
 		}
 	} while(k == 1);
 	c[i][j] = 'O';
+}
+
+int win(char c[3][3]) {
+	//Horizontales/Verticales
+	if(c[0][0] == 'X' || c[0][0] == 'O') {
+		if(c[0][0] == c[0][1] && c[0][0] == c[0][2]) {
+			if(c[0][0] == 'X') {
+				return 0; //Ganador.
+			} else return 1; //Perdedor.
+		}
+		if(c[0][0] == c[1][0] && c[0][0] == c[2][0]) {
+			if(c[0][0] == 'X') {
+				return 0;
+			} else return 1;
+		}
+	}
+	if(c[2][0] == 'X' || c[2][0] == 'O') {
+		if(c[2][0] == c[2][1] && c[2][0] == c[2][2]) {
+			if(c[0][0] == 'X') {
+				return 0; //Ganador.
+			} else return 1; //Perdedor.
+		}
+		if(c[2][2] == c[1][2] && c[2][2] == c[0][2]) {
+			if(c[0][0] == 'X') {
+				return 0; //Ganador.
+			} else return 1; //Perdedor.
+		}
+	}
+	if(c[1][1] == 'X' || c[1][1] == 'O') {
+		if(c[1][1] == c[0][1] && c[1][1] == c[2][1]) {
+			if(c[0][0] == 'X') {
+				return 0; //Ganador.
+			} else return 1; //Perdedor.
+		}
+		if(c[1][1] == c[1][0] && c[1][1] == c[1][2]) {
+			if(c[0][0] == 'X') {
+				return 0; //Ganador.
+			} else return 1; //Perdedor.
+		}
+	//Diagonales
+		if(c[1][1] == c[0][0] && c[1][1] == c[2][2]) {
+			if(c[0][0] == 'X') {
+				return 0; //Ganador.
+			} else return 1; //Perdedor.
+		}
+		if(c[1][1] == c[2][0] && c[1][1] == c[0][2]) {
+			if(c[0][0] == 'X') {
+				return 0; //Ganador.
+			} else return 1; //Perdedor.
+		}
+	}
 }
