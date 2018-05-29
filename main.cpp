@@ -13,7 +13,7 @@ void table(char c[3][3]);
 void update(char c[3][3]);
 void player(char c[3][3]);
 void cpu(char c[3][3]);
-void win(char c[3][3]);
+int win(char c[3][3]);
 
 int main() {
 	char c[3][3]; //Datos del tablero
@@ -36,7 +36,7 @@ void title() {
 }
 
 void update(char c[3][3]) {
-	int i = 0;
+	int i = 0, j;
 
 	initArrays(c);
 	
@@ -51,9 +51,28 @@ void update(char c[3][3]) {
 		else {
 			cpu(c);
 		}
+
+		system("clear");
 		
+		table(c);
+
+		j = win(c);
 		i++;
-	} while(i <= 9);
+	} while(i <= 9 && j == 2);
+
+	if(j == 0) {
+		cout << "Ganó la X (tú).\n\n";
+		exit(0);
+	}
+	else if(j == 1) {
+		cout << "Ganó la O (cpu).\n\n";
+		exit(0);
+	}
+	else {
+		cout << "Empate.\n\n";
+	}
+	cout << "Empate.\n\n";
+	exit(0);
 }
 
 void initArrays(char c[3][3]) {
@@ -219,7 +238,7 @@ int win(char c[3][3]) {
 	}
 	if(c[2][0] == 'X' || c[2][0] == 'O') {
 		if(c[2][0] == c[2][1] && c[2][0] == c[2][2]) {
-			if(c[0][0] == 'X') {
+			if(c[2][0] == 'X') {
 				return 0; //Ganador.
 			} else return 1; //Perdedor.
 		}
@@ -231,25 +250,26 @@ int win(char c[3][3]) {
 	}
 	if(c[1][1] == 'X' || c[1][1] == 'O') {
 		if(c[1][1] == c[0][1] && c[1][1] == c[2][1]) {
-			if(c[0][0] == 'X') {
+			if(c[1][1] == 'X') {
 				return 0; //Ganador.
 			} else return 1; //Perdedor.
 		}
 		if(c[1][1] == c[1][0] && c[1][1] == c[1][2]) {
-			if(c[0][0] == 'X') {
+			if(c[1][1] == 'X') {
 				return 0; //Ganador.
 			} else return 1; //Perdedor.
 		}
 	//Diagonales
 		if(c[1][1] == c[0][0] && c[1][1] == c[2][2]) {
-			if(c[0][0] == 'X') {
+			if(c[1][1] == 'X') {
 				return 0; //Ganador.
 			} else return 1; //Perdedor.
 		}
 		if(c[1][1] == c[2][0] && c[1][1] == c[0][2]) {
-			if(c[0][0] == 'X') {
+			if(c[1][1] == 'X') {
 				return 0; //Ganador.
 			} else return 1; //Perdedor.
 		}
 	}
+	return 2; //Nothing
 }
