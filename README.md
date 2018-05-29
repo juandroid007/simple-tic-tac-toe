@@ -4,7 +4,7 @@ To build, run:
 
 	make
 	
-To run, you can execute:
+To build and run, you can execute:
 
 	make run
 	
