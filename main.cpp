@@ -89,7 +89,10 @@ void initArrays(char c[3][3]) {
 void table(char c[3][3]) {
 	int i, j;
 
+	cout << endl;
+
 	for (i = 0; i <= 2; i++) {
+		cout << " ";
 		for (j = 0; j <= 2; j++) {
 			if(j < 2)
 				cout << " " << c[i][j] << " |";
@@ -97,7 +100,7 @@ void table(char c[3][3]) {
 				cout << " " << c[i][j];
 		}
 		if(i < 2)
-			cout << "\n-----------\n";
+			cout << "\n -----------\n";
 	}
 
 	cout << endl << endl;
