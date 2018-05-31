@@ -16,5 +16,10 @@ To run the build binary, run:
 	
 	./tttoe
 
-#### Note:
--The game have a bug in the player input. The out lines in terminal are duplicated. I have no idea of the cause.
+#### Notes:
+
+—The game have a bug in the player input. The out lines in terminal are duplicated. I have no idea of the cause.
+
+—I you want to build in Windows, you must have to 
+change every ````system("clear");```` to 
+````system("cls");````.
