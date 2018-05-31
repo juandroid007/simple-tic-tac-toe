@@ -115,7 +115,6 @@ void player(char c[3][3]) {
 		do {
 			fflush(stdin);
 			scanf("%c", &aux);
-			fflush(stdout);
 			//cout << endl;
 
 			if(aux == 'q' || aux == 'Q')
