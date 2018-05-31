@@ -30,7 +30,7 @@ void title() {
 	system("clear");
 
 	cout << "Tic-Tac-Toe v"<<VERSION<<", programado por Juan Villacorta.\n";
-	cout << "\n >>>Presione una tecla para continuar; CTRL+C para salir.";
+cout << "\n >>>Presione 'ENTER' para continuar.\n >>>Puede salir con CTRL+C o tipeando 'Q'.";
 
 	getchar();
 }
@@ -77,7 +77,7 @@ void update(char c[3][3]) {
 
 void initArrays(char c[3][3]) {
 	int i, j;
-	char aux = '1';
+	char aux = '1'; //Declaration of the numeric char in the counter
 
 	for (i = 0; i < 3; i++) {
 		for (j = 0; j < 3; j++){
@@ -116,6 +116,9 @@ void player(char c[3][3]) {
 			fflush(stdin);
 			scanf("%c", &aux);
 			cout << endl;
+
+			if(aux == 'q' || aux == 'Q')
+				exit(0);
 		} while(aux < '1' || aux > '9');
 
 		k = 0;
