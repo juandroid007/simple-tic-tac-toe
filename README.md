@@ -18,8 +18,10 @@ To run the build binary, run:
 
 #### Notes:
 
-—The game have a bug in the player input. The out lines in terminal are duplicated. I have no idea of the cause.
+* ~~The game have a bug in the player input. The out lines in terminal are duplicated. I have no idea of the cause.~~
+Solved.
 
-—I you want to build in Windows, you must have to 
-change every ````system("clear");```` to 
-````system("cls");````.
+
+* If you want to build in Windows, you have to 
+change every `system("clear");` to 
+`system("cls");`.
