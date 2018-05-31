@@ -1,5 +1,4 @@
 #include <iostream>
-#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
@@ -9,14 +8,14 @@ using namespace std;
 
 void title();
 void initArrays(char c[3][3]);
-void table(char c[3][3]);
+void board(char c[3][3]);
 void update(char c[3][3]);
 void player(char c[3][3]);
 void cpu(char c[3][3]);
 int win(char c[3][3]);
 
 int main() {
-	char c[3][3]; //Datos del tablero
+	char c[3][3]; //Board data.
 
 	title();
 	update(c);
@@ -43,7 +42,7 @@ void update(char c[3][3]) {
 	do {
 		system("clear");
 		
-		table(c);
+		board(c);
 
 		if(i % 2 == 0) {
 			player(c);
@@ -54,11 +53,11 @@ void update(char c[3][3]) {
 
 		system("clear");
 		
-		table(c);
+		board(c);
 
 		j = win(c);
 		i++;
-	} while(i <= 9 && j == 2);
+	} while(i <= 9 && j == 2); //Check if 9 movements have been made.
 
 	if(j == 0) {
 		cout << "Ganó la X (tú).\n\n";
@@ -68,16 +67,13 @@ void update(char c[3][3]) {
 		cout << "Ganó la O (cpu).\n\n";
 		exit(0);
 	}
-	/*else {
-		cout << "Empate.\n\n";
-	}*/
-	cout << "Empate.\n\n";
+	cout << "Empate.\n\n"; //Forget this, this is for the tie.
 	exit(0);
 }
 
 void initArrays(char c[3][3]) {
 	int i, j;
-	char aux = '1'; //Declaration of the numeric char in the counter
+	char aux = '1'; //Declaration of the numeric char in the counter.
 
 	for (i = 0; i < 3; i++) {
 		for (j = 0; j < 3; j++){
@@ -86,7 +82,7 @@ void initArrays(char c[3][3]) {
 	}
 }
 
-void table(char c[3][3]) {
+void board(char c[3][3]) {
 	int i, j;
 
 	//cout << endl;
@@ -123,6 +119,7 @@ void player(char c[3][3]) {
 
 		k = 0;
 		
+		//Check if the box is occupied.
 		switch(aux) {
 			case '1': {
 				i = 0;
@@ -228,13 +225,14 @@ void cpu(char c[3][3]) {
 	c[i][j] = 'O';
 }
 
+//Check the conditions to win/lose.
 int win(char c[3][3]) {
-	//Horizontales/Verticales
+	//Horizontal/Vertical.
 	if(c[0][0] == 'X' || c[0][0] == 'O') {
 		if(c[0][0] == c[0][1] && c[0][0] == c[0][2]) {
 			if(c[0][0] == 'X') {
-				return 0; //Ganador.
-			} else return 1; //Perdedor.
+				return 0; //Win.
+			} else return 1; //Lose.
 		}
 		if(c[0][0] == c[1][0] && c[0][0] == c[2][0]) {
 			if(c[0][0] == 'X') {
@@ -245,36 +243,36 @@ int win(char c[3][3]) {
 	if(c[2][0] == 'X' || c[2][0] == 'O') {
 		if(c[2][0] == c[2][1] && c[2][0] == c[2][2]) {
 			if(c[2][0] == 'X') {
-				return 0; //Ganador.
-			} else return 1; //Perdedor.
+				return 0; //Win.
+			} else return 1; //Lose.
 		}
 		if(c[2][2] == c[1][2] && c[2][2] == c[0][2]) {
 			if(c[0][0] == 'X') {
-				return 0; //Ganador.
-			} else return 1; //Perdedor.
+				return 0; //Win.
+			} else return 1; //Lose.
 		}
 	}
 	if(c[1][1] == 'X' || c[1][1] == 'O') {
 		if(c[1][1] == c[0][1] && c[1][1] == c[2][1]) {
 			if(c[1][1] == 'X') {
-				return 0; //Ganador.
-			} else return 1; //Perdedor.
+				return 0; //Win.
+			} else return 1; //Lose.
 		}
 		if(c[1][1] == c[1][0] && c[1][1] == c[1][2]) {
 			if(c[1][1] == 'X') {
-				return 0; //Ganador.
-			} else return 1; //Perdedor.
+				return 0; //Win.
+			} else return 1; //Lose.
 		}
-	//Diagonales
+	//Diagonal
 		if(c[1][1] == c[0][0] && c[1][1] == c[2][2]) {
 			if(c[1][1] == 'X') {
-				return 0; //Ganador.
-			} else return 1; //Perdedor.
+				return 0; //Win.
+			} else return 1; //Lose.
 		}
 		if(c[1][1] == c[2][0] && c[1][1] == c[0][2]) {
 			if(c[1][1] == 'X') {
-				return 0; //Ganador.
-			} else return 1; //Perdedor.
+				return 0; //Win.
+			} else return 1; //Lose.
 		}
 	}
 	return 2; //Nothing
