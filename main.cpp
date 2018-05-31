@@ -111,11 +111,13 @@ void player(char c[3][3]) {
 	char aux;
 
 	do {
+		cout << ">Elige una casilla: ";
 		do {
-			cout << ">Elige una casilla: ";
+			
 			fflush(stdin);
 			scanf("%c", &aux);
-			cout << endl;
+			fflush(stdout);
+			//cout << endl;
 
 			if(aux == 'q' || aux == 'Q')
 				exit(0);
