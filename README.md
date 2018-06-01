@@ -16,9 +16,15 @@ To run the build binary, run:
 	
 	./tttoe
 
+<<<<<<< HEAD
 To debug, first build and run:
 
 	make dbg
+=======
+To debug, run:
+
+	make debug
+>>>>>>> 61e6f5813aca45e062d26cd60a53162d2eb6c5fa
 
 #### Notes:
 
