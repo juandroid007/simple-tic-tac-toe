@@ -7,3 +7,7 @@ run:
 
 clean:
 	rm ./tttoe
+
+debug:
+	g++ main.cpp -g -o debug
+	gdb -tui debug
