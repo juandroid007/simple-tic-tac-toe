@@ -16,14 +16,13 @@ To run the build binary, run:
 	
 	./tttoe
 
-To debug, run:
+To debug, first build and run:
 
-	make debug
+	make dbg
 
 #### Notes:
 
-* ~~The game have a bug in the player input. The out lines in terminal are duplicated. I have no idea of the cause.~~
-Solved.
+* Solved. ~~The game have a bug in the player input. The out lines in terminal are duplicated. I have no idea of the cause.~~
 
 
 * If you want to build in Windows, you have to 

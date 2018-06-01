@@ -8,6 +8,5 @@ run:
 clean:
 	rm ./tttoe
 
-debug:
-	g++ main.cpp -g -o debug
+dbg:
 	gdb -tui debug
